@@ -23,18 +23,20 @@ app.use(static(
   }
 ));
 
+// 拦截所有请求
+app.use((ctx, next) => {
+  console.log('---url---', ctx.req.url);
+  console.log('---ip---', ctx.req.ip);
+  // console.log('---cookies---', ctx.cookies );
+  // 执行后面的中间件
+  next()
+});
+
 
 // 只用一个/会无法访问, 必须带字符如/index
 route.use('/index', indexRoute.routes(), indexRoute.allowedMethods());
 route.use('/ms', msRoute.routes(), msRoute.allowedMethods());
 
-// 拦截所有请求
-app.use((ctx, next) => {
-  console.log('---url---', ctx.req.url);
-  console.log('---ip---', ctx.req.ip);
-  // 执行后面的中间件
-  next()
-});
 
 app.use(route.routes());
 app.use(route.allowedMethods());
