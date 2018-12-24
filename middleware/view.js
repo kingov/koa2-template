@@ -9,10 +9,11 @@ function view(app, opts = {}) {
     let ctx = this;
     let filePath = path.join(baseDir, page + '.html');
     if (fs.existsSync(filePath)) {
-      let tpl = fs.readFileSync(filePath, 'binary');
+      // let tpl = fs.readFileSync(filePath, 'binary');
+      let tpl = fs.readFileSync(filePath, 'utf8');
       ctx.body = tpl;
     } else {
-      ctx.throw(404);
+      throw new Error(`can not found ${page}.html !`);
     }
   };
 }

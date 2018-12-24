@@ -41,4 +41,20 @@ route.use('/ms', msRoute.routes(), msRoute.allowedMethods());
 app.use(route.routes());
 app.use(route.allowedMethods());
 
+// catch 404 and forward to error handler
+app.use((ctx, next) => {
+  ctx.response.status = 404;
+  // ctx.response.body = 'Page Not Found';
+  // console.log('---url', ctx.req.url);
+  
+  ctx.render('error')
+})
+
+
+// 未捕获unhandledRejection错误
+process.on('unhandledRejection', error => {
+  console.log('-unhandledRejection-', error);
+});
+
+
 app.listen(3000, '192.168.43.166');
