@@ -45,8 +45,6 @@ app.use(route.allowedMethods());
 app.use((ctx, next) => {
   ctx.response.status = 404;
   // ctx.response.body = 'Page Not Found';
-  // console.log('---url', ctx.req.url);
-  
   ctx.render('error')
 })
 

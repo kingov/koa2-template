@@ -1,4 +1,5 @@
 const Router = require('koa-router');
+let user = require('../proxy/user')
 
 let route = new Router()
 
