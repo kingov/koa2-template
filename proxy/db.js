@@ -1,5 +1,6 @@
 let Sequelize = require('sequelize')
 
+var sequelize = {}
 
 // var sequelize = new Sequelize(
 //   'rank', // 数据库名
