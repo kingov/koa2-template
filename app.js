@@ -19,7 +19,7 @@ app.use(static(
   path.join(__dirname, './public/'), {
     hidden: false,  // 是否允许传输隐藏文件
     // 等所有中间件响应之后再响应所请求的静态资源
-    defer: true
+    // defer: true
   }
 ));
 
@@ -46,7 +46,12 @@ app.use((ctx, next) => {
   ctx.response.status = 404;
   // ctx.response.body = 'Page Not Found';
   ctx.render('error')
+  // next()
 })
+
+app.on('error', (err, ctx) => {
+    console.error('server error', err);
+});
 
 
 // 未捕获unhandledRejection错误

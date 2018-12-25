@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MS</title>
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+</head>
+<body>
+  
+  <div id="app">
+    <h4 @click="testClick">{{msg}}</h4>
+
+
+  </div>
+
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/bootstrap/bootstrap.min.js"></script>
+  <script src="/js/vue.min.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: () => {
+        return {
+          msg: 'ms system'
+        }
+      },
+      created() {
+        
+      },
+      mounted() {
+        
+      },
+      methods: {
+        testClick() {
+          console.log('msg', this.msg)
+        }
+      },
+    })
+  </script>
+</body>
+</html>
