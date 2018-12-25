@@ -15,7 +15,6 @@ route.get('/page', async(ctx, next)=>{
   //   httpOnly: '',   // 服务器可访问 cookie, 默认是 true
   //   overwrite: '',   // 一个布尔值，表示是否覆盖以前设置的同名的 cookie (默认是 false). 如果是 true, 在同一个请求中设置相同名称的所有 Cookie（不管路径或域）是否在设置此Cookie 时从 Set-Cookie 标头中过滤掉。
   // });
-
   // ctx.body = '<h3>page</h3>'
   ctx.render('index');
 });

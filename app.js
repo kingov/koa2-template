@@ -13,8 +13,6 @@ let route = new Router();
 
 view(app, {baseDir: path.join(__dirname, 'views')})
 
-
-
 app.use(static(
   path.join(__dirname, './public/'), {
     hidden: false,  // 是否允许传输隐藏文件
@@ -60,4 +58,4 @@ process.on('unhandledRejection', error => {
 });
 
 
-app.listen(3000, '192.168.43.166');
+app.listen(3000);
