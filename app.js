@@ -5,6 +5,8 @@ const static = require('koa-static')
 const Router = require('koa-router');
 let view = require('./middleware/view')
 let path = require('path');
+var cors = require('koa2-cors');
+
 
 let indexRoute = require('./route/indexRoute.js');
 let msRoute = require('./route/msRoute.js');
@@ -12,6 +14,8 @@ let msRoute = require('./route/msRoute.js');
 let route = new Router();
 
 view(app, {baseDir: path.join(__dirname, 'views')})
+
+app.use(cors());
 
 app.use(static(
   path.join(__dirname, './public/'), {
@@ -34,7 +38,6 @@ app.use((ctx, next) => {
 // 只用一个/会无法访问, 必须带字符如/index
 route.use('/index', indexRoute.routes(), indexRoute.allowedMethods());
 route.use('/ms', msRoute.routes(), msRoute.allowedMethods());
-
 
 app.use(route.routes());
 app.use(route.allowedMethods());
