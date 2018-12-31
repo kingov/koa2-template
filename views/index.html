@@ -5,10 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>koa2</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-  <h4 class="koa-title">koa2</h4>
-  
+  <div id="app">
+    <h2 class="koa-title">{{msg}}</h2>
+  </div>
+
+  <script src="/js/vue.min.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: () => {
+        return {
+          msg: 'koa2 vue2'
+        }
+      }
+    })
+  </script>
 </body>
 </html>

@@ -24,7 +24,7 @@
       el: '#app',
       data: () => {
         return {
-          msg: 'ms system'
+          msg: 'ge data'
         }
       },
       created() {
@@ -35,7 +35,10 @@
       },
       methods: {
         testClick() {
-          console.log('msg', this.msg)
+          $.get('/api/get-data').then(data => {
+            console.log('-------------', data);
+            
+          })
         }
       },
     })
