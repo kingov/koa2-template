@@ -18,7 +18,12 @@ var sequelize = new Sequelize(
         max: 5,
         idle: 30000,
         acquire: 60000,
-      }
+      },
+      // 取消数据库的操作别名如$gt等, 因为会造成警告  sequelize deprecated String based operators are now deprecated. Please use Symbol based operators for better security, read more at http://docs.sequelizejs.com/manual/tutorial/querying.html#operators node_modules/sequelize/lib/sequelize.js:242:13
+      // [Op.or]: [req.body.type, 'B']  Sequelize.Op使用这种方式
+      // $or: [req.body.type, 'B']  如果用户输入了$or会造成xss攻击
+      operatorsAliases: Sequelize.Op  // Sequelize.Op或者false
+      
   }
 );
 
