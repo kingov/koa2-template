@@ -3,7 +3,8 @@ const Koa = require('koa');
 const app = new Koa();
 const static = require('koa-static')
 const Router = require('koa-router');
-let myview = require('./middleware/myview')
+let myView = require('./middleware/myview')
+let myLog = require('./middleware/log4js-config')
 let path = require('path');
 var cors = require('koa2-cors');
 
@@ -24,12 +25,13 @@ app.use(static(
   }
 ));
 
-app.use(myview({baseDir: path.join(__dirname, './views')}))
+app.use(myView({baseDir: path.join(__dirname, './views')}))
+app.use(myLog())
 
 // 拦截所有请求
 app.use((ctx, next) => {
-  console.log('---url---', ctx.req.url);
-  console.log('---ip---', ctx.req.ip);
+  ctx.infolog('---url---', ctx.req.url);
+  ctx.infolog('---ip---', ctx.req.ip);
   // console.log('---cookies---', ctx.cookies );
   // 执行后面的中间件
   next()
