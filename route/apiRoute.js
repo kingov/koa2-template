@@ -16,13 +16,13 @@ route.get('/get-data', async(ctx)=>{
 });
 
 // 下载文件
-route.get('/get-file', (ctx) => {
+route.get('/get-file', async (ctx) => {
 
   let path = '../public' + '/img/xm2.jpeg'
 
   ctx.infolog('get-file下载路径',  path)
 
-  send(ctx, 'xm2.jpeg', { root: __dirname + '/../public/img/' })
+  await send(ctx, 'xm2.jpeg', { root: __dirname + '/../public/img/' })
   // send(ctx, path )
 })
 
@@ -35,9 +35,4 @@ route.get('/mysql-date', (ctx) => {
   ctx.body = obj
 })
 
-
-
-
 module.exports = route
-
-
