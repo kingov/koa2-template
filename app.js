@@ -67,9 +67,9 @@ app.use((ctx, next) => {
 })
 
 
-app.on('error', (err, b, c) => {
+app.on('error', (err, ctx, c) => {
   console.error('server error', err);
-  console.error('server error b', b);
+  console.error('server error ctx', ctx);
   console.error('server error c', c);
   ctx.render('error')
 });
