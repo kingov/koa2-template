@@ -66,8 +66,13 @@ module.exports = () => {
     next()
 
     let endTime = new Date()
+    let spendTime = startTime = endTime
+    let remoteIp = ctx.req.headers['x-forwarded-for'] ||
+    ctx.req.connection.remoteAddress ||
+    ctx.req.socket.remoteAddress ||
+    ctx.req.connection.socket.remoteAddress;
 
-    defaultLog.info(`remote-ip=${ctx.ip}; method=${ctx.method}; host=${ctx.header.host}; status=${ctx.status}; user-agent=${ctx.header['user-agent']}`)
+    defaultLog.info(`remote-ip=${remoteIp}; method=${ctx.method}; spend-time:${spendTime} host=${ctx.header.host}; status=${ctx.status}; user-agent=${ctx.header['user-agent']}`)
 
   }
 }
