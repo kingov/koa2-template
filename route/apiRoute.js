@@ -22,8 +22,8 @@ route.get('/get-file', (ctx) => {
 
   ctx.infolog('get-file下载路径',  path)
 
-  // send(ctx, 'img/xm2.jpeg', { root: __dirname + '/../public/' })
-  send(ctx, path )
+  send(ctx, 'img/xm2.jpeg', { root: __dirname + '/../public/' })
+  // send(ctx, path )
 })
 
 route.get('/mysql-date', (ctx) => {
@@ -31,7 +31,7 @@ route.get('/mysql-date', (ctx) => {
     firstName: ctx.query.firstName,
     lastName: ctx.query.lastName
   }
-  apiCtrl.mysqlDate(obj)
+  // apiCtrl.mysqlDate(obj)
   ctx.body = obj
 })
 
