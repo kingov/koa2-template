@@ -71,7 +71,7 @@ app.on('error', (err, b, c) => {
   console.error('server error', err);
   console.error('server error b', b);
   console.error('server error c', c);
-  // ctx.render('error')
+  ctx.render('error')
 });
 
 
