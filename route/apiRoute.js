@@ -17,10 +17,13 @@ route.get('/get-data', async(ctx)=>{
 
 // 下载文件
 route.get('/get-file', (ctx) => {
-  ctx.infolog('get-file下载路径',  __dirname + '/../public/')
+
+  let path = '../public' + '/img/xm2.jpeg'
+
+  ctx.infolog('get-file下载路径',  path)
 
   // send(ctx, 'img/xm2.jpeg', { root: __dirname + '/../public/' })
-  send(ctx, '../public' + '/img/xm2.jpeg' )
+  send(ctx, path )
 })
 
 route.get('/mysql-date', (ctx) => {
