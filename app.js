@@ -68,7 +68,7 @@ app.use((ctx, next) => {
 
 
 app.on('error', (err, ctx) => {
-    ctx.errlog('server error', err);
+  console.error('server error', err);
 });
 
 
