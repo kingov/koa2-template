@@ -17,7 +17,8 @@ route.get('/get-data', async(ctx)=>{
 
 // 下载文件
 route.get('/get-file', (ctx) => {
-  send(ctx, 'img/xm2.jpeg', { root: __dirname + '/../public' })
+  ctx.infolog('get-file   下载文件')
+  send(ctx, 'img/xm2.jpeg', { root: __dirname + '/../public/' })
 })
 
 route.get('/mysql-date', (ctx) => {
