@@ -15,10 +15,12 @@ route.get('/get-data', async(ctx)=>{
   }
 });
 
-// 下载文件
+// 下载文件, 该路由需要由a标签触发
 route.get('/get-file', async (ctx) => {
+  // body的值一定要给
   ctx.body = ''
   let fileName = 'xm3.jpeg'
+  // 高速浏览器需要下载文件, 而不是在新窗口打开文件
   ctx.attachment(fileName);
   await send(ctx, fileName, { root: __dirname + '/../public/img/' })
 })
