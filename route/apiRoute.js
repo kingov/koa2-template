@@ -22,7 +22,7 @@ route.get('/get-file', (ctx) => {
 
   ctx.infolog('get-file下载路径',  path)
 
-  send(ctx, 'img/xm2.jpeg', { root: __dirname + '/../public/' })
+  send(ctx, 'xm2.jpeg', { root: __dirname + '/../public/img/' })
   // send(ctx, path )
 })
 
