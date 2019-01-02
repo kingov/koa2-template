@@ -21,7 +21,7 @@ route.get('/get-file', async (ctx) => {
   let path = '../public' + '/img/xm2.jpeg'
 
   ctx.infolog('get-file下载路径',  path)
-  // ctx.body = 'download'
+  ctx.body = 'download'
   await send(ctx, 'xm2.jpeg', { root: __dirname + '/../public/img/' })
   // send(ctx, path )
 })
