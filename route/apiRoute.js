@@ -20,7 +20,7 @@ route.get('/get-file', (ctx) => {
   ctx.infolog('get-file下载路径',  __dirname + '/../public/')
 
   // send(ctx, 'img/xm2.jpeg', { root: __dirname + '/../public/' })
-  send(ctx, __dirname + '/../public' + '/img/xm2.jpeg' )
+  send(ctx, '../public' + '/img/xm2.jpeg' )
 })
 
 route.get('/mysql-date', (ctx) => {
