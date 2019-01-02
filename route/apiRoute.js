@@ -18,7 +18,7 @@ route.get('/get-data', async(ctx)=>{
 // 下载文件
 route.get('/get-file', (ctx) => {
 
-  let path = '../public' + '/img/xm2.jpeg'
+  let path = './public' + '/img/xm2.jpeg'
 
   ctx.infolog('get-file下载路径',  path)
 
