@@ -63,7 +63,7 @@ app.use((ctx, next) => {
   ctx.response.status = 404;
   // ctx.response.body = 'Page Not Found';
   ctx.render('error')
-  // next()
+  next()
 })
 
 
