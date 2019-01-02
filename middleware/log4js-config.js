@@ -71,8 +71,9 @@ module.exports = () => {
     ctx.req.connection.remoteAddress ||
     ctx.req.socket.remoteAddress ||
     ctx.req.connection.socket.remoteAddress;
+    // user-agent=${ctx.header['user-agent']}
 
-    defaultLog.info(`remote-ip=${remoteIp}; method=${ctx.method}; spend-time:${spendTime} host=${ctx.header.host}; status=${ctx.status}; user-agent=${ctx.header['user-agent']}`)
+    defaultLog.info(`remote-ip=${remoteIp}; method=${ctx.method}; spend-time:${spendTime} host=${ctx.header.host}; status=${ctx.status}`)
 
   }
 }
