@@ -45,15 +45,29 @@ log4js.configure({
 
 const errlog = log4js.getLogger('err')
 const log = log4js.getLogger('wx')
+const defaultLog = log4js.getLogger('default')
 
 module.exports = () => {
   return (ctx, next) => {
+
+    // log4js.connectLogger(defaultLog, {
+    //     format: '[:remote-addr :method :url :status :response-timems][:referrer HTTP/:http-version :user-agent]'//自定义输出格式
+    // })
+
     ctx.errlog = (a, b, c, d) => {
         errlog.error(a || '', b || '', c || '', d || '')
     }
+
     ctx.infolog = (a, b, c, d) => {
         log.info(a || '', b || '', c || '', d || '')
     }
+    let startTime = new Date()
+
     next()
+
+    let endTime = new Date()
+
+    defaultLog.info(`remote-ip=${ctx.ip}; method=${ctx.method}; host=${ctx.header.host}; status=${ctx.status}; user-agent=${ctx.header['user-agent']}`)
+
   }
 }

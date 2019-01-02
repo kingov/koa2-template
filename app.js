@@ -50,7 +50,7 @@ route.get('/', (ctx) => {
     // ctx.body = '<h2>路由根路径</h2>'
     ctx.render('index')
   } catch (error) {
-    console.log('get /  error', error)
+    ctx.errlog('get /  error', error)
   }
 })
 
@@ -68,13 +68,13 @@ app.use((ctx, next) => {
 
 
 app.on('error', (err, ctx) => {
-    console.error('server error', err);
+    ctx.errlog('server error', err);
 });
 
 
 // 未捕获unhandledRejection错误
 process.on('unhandledRejection', error => {
-  console.log('-unhandledRejection-', error);
+  console.error('-unhandledRejection-', error);
 });
 
 
