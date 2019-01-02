@@ -18,7 +18,7 @@ route.get('/get-data', async(ctx)=>{
 // 下载文件
 route.get('/get-file', async (ctx) => {
   // ctx.body = 'download'
-  let fileName = 'xm2.jpeg'
+  let fileName = 'xm3.jpeg'
   ctx.attachment(fileName);
   await send(ctx, fileName, { root: __dirname + '/../public/img/' })
 })
