@@ -17,11 +17,10 @@ route.get('/get-data', async(ctx)=>{
 
 // 下载文件
 route.get('/get-file', async (ctx) => {
-  ctx.body = 'download'
+  // ctx.body = 'download'
   let fileName = 'xm2.jpeg'
   ctx.attachment(fileName);
   await send(ctx, fileName, { root: __dirname + '/../public/img/' })
-  // send(ctx, path )
 })
 
 route.get('/mysql-date', (ctx) => {
