@@ -22,7 +22,9 @@ route.get('/get-file', async (ctx) => {
 
   ctx.infolog('get-file下载路径',  path)
   ctx.body = 'download'
-  await send(ctx, 'xm2.jpeg', { root: __dirname + '/../public/img/' })
+  let fileName = 'xm2.jpeg'
+  ctx.attachment(fileName);
+  await send(ctx, fileName, { root: __dirname + '/../public/img/' })
   // send(ctx, path )
 })
 
