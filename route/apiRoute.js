@@ -36,6 +36,16 @@ route.get('/download', async function (ctx) {
   ctx.body = img
 });
 
+
+route.get('/stream-download', async function (ctx) {
+  let filePath = path.join( __dirname, '/../public/img/')
+  let fileName = 'xm2.jpeg'
+  ctx.set('Content-Type', 'application/octet-stream');
+  ctx.set('Content-disposition', 'attachment;filename=' + fileName);
+  ctx.body = fs.createReadStream(filePath + fileName)
+});
+
+
 route.get('/mysql-date', (ctx) => {
   let obj = {
     firstName: ctx.query.firstName,
