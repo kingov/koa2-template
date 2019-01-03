@@ -25,6 +25,15 @@ route.get('/get-file', async (ctx) => {
   await send(ctx, fileName, { root: __dirname + '/../public/img/' })
 })
 
+route.get('/download', async function (ctx) {
+  let filePath = path.join( __dirname, '/../public/img/')
+  let fileName = 'xm2.jpeg'
+  // let fileName = 'xm3.jpeg'
+  let img = fs.readFileSync(filePath + fileName)
+  ctx.set('Content-disposition', 'attachment;filename=' + fileName);
+  ctx.body = img
+});
+
 route.get('/mysql-date', (ctx) => {
   let obj = {
     firstName: ctx.query.firstName,
